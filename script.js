@@ -90,6 +90,7 @@ window.onload = function () {
 
 
   ecare_params = Object.fromEntries(new URLSearchParams(decodeURI(location.search)).entries());
+  console.log(ecare_params);
   const wepgH1 = document.getElementById('wepg-h1');
   wepgH1.innerHTML = `(${ecare_params['vpc_Command'] || 'No Command'})`;
   initInputs();
