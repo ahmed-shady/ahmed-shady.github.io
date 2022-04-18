@@ -129,7 +129,7 @@ window.onload = function () {
       .join('&');
 
     let hash = generateHash(query, 'salt');
-    query += `&vpc_SecureHashType=SHA_512&vpc_SecureHash=${hash}`;
+    query += `&vpc_SecureHashType=HmacSHA256&vpc_SecureHash=${hash}`;
     let url = `${ecare_params['vpc_ReturnURL']}?${encodeURI(query)}`;
     window.location.href = url;
   });
@@ -205,7 +205,7 @@ function swapColor(basecolor) {
 
 function generateHash(plainText, secretKey) {
   var hmac = forge.hmac.create();
-  hmac.start('sha512', secretKey);
+  hmac.start('sha256', secretKey);
   hmac.update(plainText);
   var hashText = hmac.digest().toHex();
   return hashText;
