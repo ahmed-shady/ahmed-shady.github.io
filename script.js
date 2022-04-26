@@ -208,7 +208,10 @@ function generateHash(plainText, secretKey) {
   var hmac = forge.hmac.create();
   hmac.start('sha256', secretKey);
   hmac.update(plainText);
-  var hashText = hmac.digest().toHex();
+  var hashText = hmac.digest();
+  hashText = btoa(hashText).replace(/\+/g, '-') // Convert '+' to '-'
+    .replace(/\//g, '_') // Convert '/' to '_'
+    .replace(/=+$/, ''); // Remove ending '='
   return hashText;
 }
 
