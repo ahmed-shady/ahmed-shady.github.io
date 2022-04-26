@@ -209,7 +209,7 @@ function generateHash(plainText, secretKey) {
   hmac.start('sha256', secretKey);
   hmac.update(plainText);
   var hashText = hmac.digest();
-  hashText = forge.util.encode64(hashText.data).replace(/\+/g, '-') // Convert '+' to '-'
+  hashText = forge.util.encode64(hashText.data).replace(/\+/g, '-')  // Convert '+' to '-'
     .replace(/\//g, '_') // Convert '/' to '_'
     .replace(/=+$/, ''); // Remove ending '='
   return hashText;
