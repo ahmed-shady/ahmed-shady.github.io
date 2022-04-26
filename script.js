@@ -130,7 +130,7 @@ window.onload = function () {
       .join('&');
 
     let hash = generateHash(query, 'salt');
-    query += `&vpc_SecureHashType=HmacSHA256&vpc_SecureHash=${hash}`;
+    query += `&vpc_SecureHashType=${ecare_params['vpc_SecureHashType'] || 'SHA256'}&vpc_SecureHash=${hash}`;
     let url = `${ecare_params['vpc_ReturnURL']}?${encodeURI(query)}`;
     window.location.href = url;
   });
