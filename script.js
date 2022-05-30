@@ -132,6 +132,7 @@ window.onload = function () {
     let hash = generateHash(query, 'salt');
     query += `&vpc_SecureHashType=${ecare_params['vpc_SecureHashType'] || 'SHA256'}&vpc_SecureHash=${hash}`;
     let url = `${ecare_params['vpc_ReturnURL']}?${encodeURI(query)}`;
+    console.log(url);
     window.location.href = url;
   });
 };
