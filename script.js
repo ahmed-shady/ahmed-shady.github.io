@@ -138,7 +138,7 @@ window.onload = function () {
       .map((k) => `${k}=${wepg_params[k]}`)
       .join('&');
 
-    let hash = generateHash(query, salt[ecare_params['vpc_Merchant']]);
+    let hash = generateHash(query, salts[ecare_params['vpc_Merchant']]);
     query += `&vpc_SecureHashType=${ecare_params['vpc_SecureHashType'] || 'SHA256'}&vpc_SecureHash=${hash}`;
     let url = `${ecare_params['vpc_ReturnURL']}?${encodeURI(query)}`;
     console.log(url);
