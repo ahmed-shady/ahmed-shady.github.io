@@ -15,8 +15,8 @@ const cards = [
     type: 'unionpay',
     expire: '04/21',
     balance: 100,
-    status: '4',
-    message: 'Expired Card'
+    status: '0',
+    message: 'transaction succeeded'
   },
   {
     name: 'mostafa belal',
@@ -51,8 +51,8 @@ const cards = [
     type: 'visa',
     expire: '04/24',
     balance: 100,
-    status: '0',
-    message: 'transaction succeeded'
+    status: '4',
+    message: 'Expired Card'
   }
 ];
 function initInputs(){
