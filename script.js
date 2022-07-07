@@ -1,4 +1,13 @@
 var ecare_params = {};
+const salts = {
+  'MOBILE-PRE': '6830b782eb5811ec8ea00242ac120002',
+  'MOBILE-POST': '39267832eb5811ec8ea00242ac120002',
+  'FBB-PRE': '17e99538eb5711ec8ea00242ac120002',
+  'FBB-POST': 'be5b53c6eb5611ec8ea00242ac120002',
+  'Ecare-Recurring': 'c439b354eb5711ec8ea00242ac120002',
+};
+
+
 const cards = [
   {
     name: 'ahmed ali',
@@ -129,7 +138,7 @@ window.onload = function () {
       .map((k) => `${k}=${wepg_params[k]}`)
       .join('&');
 
-    let hash = generateHash(query, 'salt');
+    let hash = generateHash(query, salt[ecare_params['vpc_Merchant']]);
     query += `&vpc_SecureHashType=${ecare_params['vpc_SecureHashType'] || 'SHA256'}&vpc_SecureHash=${hash}`;
     let url = `${ecare_params['vpc_ReturnURL']}?${encodeURI(query)}`;
     console.log(url);
