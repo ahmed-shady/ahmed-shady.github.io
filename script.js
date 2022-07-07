@@ -218,10 +218,11 @@ function generateHash(plainText, secretKey) {
   var hmac = forge.hmac.create();
   hmac.start('sha256', secretKey);
   hmac.update(plainText);
-  var hashText = hmac.digest();
-  hashText = forge.util.encode64(hashText.data).replace(/\+/g, '-')  // Convert '+' to '-'
+  var hashText = hmac.digest().toHex().toUpperCase();
+  console.log(hashText);
+ /* hashText = forge.util.encode64(hashText.data).replace(/\+/g, '-')  // Convert '+' to '-'
     .replace(/\//g, '_') // Convert '/' to '_'
-    .replace(/=+$/, ''); // Remove ending '='
+    .replace(/=+$/, ''); // Remove ending '='*/
   return hashText;
 }
 
